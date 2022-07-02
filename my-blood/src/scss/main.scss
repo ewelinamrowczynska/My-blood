@@ -1,3 +1,6 @@
-* {
-  color: red;
-}
+@import "generic/reset";
+@import "~bootstrap/scss/bootstrap";
+@import "settings/all";
+
+@import "elements/nav";
+@import "elements/form";

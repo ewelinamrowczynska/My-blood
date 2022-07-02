@@ -1,0 +1,53 @@
+
+h2 {
+  text-align: center;
+  color: red;
+  margin-top: 1em;
+}
+.form {
+  min-width: 30vw;
+  max-width: 40vw;
+  min-height: 50vh;
+  margin: 4em auto;
+  padding: 2em;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #a1e0f8;
+
+  .form__input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      margin: 0.5em;
+      border: none;
+      border-bottom: 1.5px solid grey;
+      background-color: #a1e0f8;
+    }
+  }
+
+  .log__btn {
+    width: 8em;
+    margin: 0.5em;
+    align-self: center;
+    border-radius: 5px;
+    border: none;
+    background-color: #a1e0f8;
+
+    a {
+      color: grey;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: black;
+    }
+
+  }
+}
