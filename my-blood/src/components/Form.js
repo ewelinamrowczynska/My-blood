@@ -1,20 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import FakeAPI from "./FakeAPI";
-import {useNavigate} from "react-router-dom";
 import Nav from "./Nav";
+import Home from "./Home";
+import AddForm from "./AddForm";
+import FilterForm from "./FilterForm";
+import Footer from "./Footer";
 
-const Form = ({isLogged, setIsLogged}) => {
+const Form = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
+    const [isLogged, setIsLogged] = useState(false);
     const [user, setUser] = useState({});
     const [msg, setMsg] = useState("");
-    let navigate = useNavigate();
-
-    useEffect(() => {
-        if (isLogged) {
-            navigate("/");
-        }
-    }, [isLogged]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,18 +19,27 @@ const Form = ({isLogged, setIsLogged}) => {
             username: login,
             password: password
         }).then(user => {
-            console.log(user);
             setUser(user);
             setIsLogged(true);
         }).catch(err => {
             setMsg(err);
             setIsLogged(false);
-            console.log("Nie udalo sie zalogować", err);
         })
     }
 
     if (isLogged) {
-        navigate("/");
+        return (
+            <>
+                <div className="header">
+                    <Nav/>
+                    <span className="userName">Zalogowany użytkownik {user.name}</span>
+                </div>
+                <Home/>
+                <AddForm/>
+                <FilterForm/>
+                <Footer/>
+
+            </>)
     }
 
     return (
