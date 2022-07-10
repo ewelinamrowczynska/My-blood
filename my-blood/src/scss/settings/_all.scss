@@ -2,3 +2,24 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  font-family: Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+                  90deg,
+                  rgba(93, 12, 255, 1) 0%,
+                  rgba(155, 0, 250, 1) 100%
+  );
+
+  #root {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    color: antiquewhite;
+    border-radius: 10px;
+  }
+}

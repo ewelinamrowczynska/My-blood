@@ -1,65 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import Input from '@mui/material/Input'
-import {Button} from "@mui/material";
-/*
-const AddForm = () => {
-    const [form, setForm] = useState({date: new Date(), parameter: "", result: "", unit: ""});
-
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setForm(prevState => {
-            return {
-                ...prevState,
-                [name]: value
-            }
-        });
-    };
-    const handleUnitChange = (e) => {
-        const {name, value} = e.target;
-        setForm(prevState => {
-            return {
-                ...prevState,
-                [name]: value
-            }
-        });
-    };
-    const handleNextBtn = () => {
-        return <ul></ul>
-
-    }
-    const handleAddBtn = () => {
-
-    }
-
-
-    return (
-        <>
-            <form>
-                <label>wpisz parametr<input type="text" name="parameter" value={form.parameter}
-                                            onChange={handleChange}/></label>
-                <label>wartość<input type="text" name="result" value={form.result} onChange={handleChange}/></label>
-                <label>jendostka
-                    <select value={form.unit} onChange={handleUnitChange}>
-                        <option value="tys/μl">tys/μl</option>
-                        <option value="mln/μl">mln/μl</option>
-                        <option value="g/dl">g/dl</option>
-                        <option value="%">%</option>
-                        <option value="fl">fl</option>
-                        <option value="pg">pg</option>
-                        <option value="mg/l">mg/l</option>
-                        <option value="U/l">U/l</option>
-                    </select></label>
-                <button className="nextBtn">następny</button>
-
-            </form>
-            <button className="addBtn">Dodaj wyniki</button>
-        </>
-    );
-};
-
-
- */
-
+import React, { useState, useEffect } from 'react';
+import { RiCloseCircleLine } from 'react-icons/ri';
+import { TiEdit } from "react-icons/ti";
+import { MdFileDownloadDone } from "react-icons/md";
 
 const AddForm = () => {
     const [results, setResults] = useState([]);
@@ -124,8 +66,9 @@ const AddForm = () => {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
+        <div className="container blackContainer">
+            <button className="btn newCardBtn" type="button">Nowa karta wyników</button>
+            <form className="addForm" onSubmit={handleSubmit}>
                 <input type="text"
                        placeholder="parametr"
                        onChange={(e) => setResult(e.target.value)}
@@ -139,7 +82,7 @@ const AddForm = () => {
                     value={unit}
                     onChange={e => setUnit(e.target.value)}
                 >
-                    <option value="wybierz jednostkę">wybierz jednostkę</option>
+                    <option value="jednostka">jednostka</option>
                     <option value="tys/μl">tys/μl</option>
                     <option value="mln/μl">mln/μl</option>
                     <option value="g/dl">g/dl</option>
@@ -149,13 +92,13 @@ const AddForm = () => {
                     <option value="mg/l">mg/l</option>
                     <option value="U/l">U/l</option>
                 </select>
-                <button type="submit">Dodaj wynik</button>
-                <button type="button">Nowa karta wyników</button>
+                <button className="btn" type="submit">Dodaj wynik</button>
+
             </form>
-            <ul>
+            <ul className="card">
                 {results.map((el) => {
                     return (
-                        <li key={el.id}>{resultEditing === el.id ? (
+                        <li className="editForm" key={el.id}>{resultEditing === el.id ? (
                                 <>
                                     <input
                                         type="text"
@@ -172,7 +115,7 @@ const AddForm = () => {
                                         value={editUnit}
                                         onChange={e => setEditUnit(e.target.value)}
                                     >
-                                        <option value="wybierz jednostkę">wybierz jednostkę</option>
+                                        <option value="jednostka">jednostka</option>
                                         <option value="tys/μl">tys/μl</option>
                                         <option value="mln/μl">mln/μl</option>
                                         <option value="g/dl">g/dl</option>
@@ -184,21 +127,21 @@ const AddForm = () => {
                                     </select>
                                 </>)
                             :
-                            (<div>{el.parameter} {el.quantity} {el.unit}</div>)}
+                            (<span className="listValues">{el.parameter} {el.quantity} {el.unit}</span>)}
                             {resultEditing === el.id
-                                ? (<button onClick={() => editResult(el.id)}>Zapisz zmiany</button>)
-                                : (<button onClick={() => {
+                                ? (<button className="listBtn" onClick={() => editResult(el.id)}><MdFileDownloadDone /></button>)
+                                : (<button className="listBtn" onClick={() => {
                                     setResultEditing(el.id)
-                                }}>Edytuj</button>)}
-                            <button onClick={() => {
+                                }}><TiEdit /></button>)}
+                            <button className="listBtn" onClick={() => {
                                 deleteResult(el.id)
-                            }}>Usuń
+                            }}><RiCloseCircleLine />
                             </button>
                         </li>
                     )
                 })}
             </ul>
-        </>
+        </div>
     )
 };
 

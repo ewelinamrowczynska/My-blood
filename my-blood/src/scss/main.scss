@@ -1,6 +1,8 @@
 @import "generic/reset";
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 @import "settings/all";
-
-@import "elements/nav";
+@import "elements/header";
+@import "elements/home";
+@import "elements/addForm";
 @import "elements/form";
