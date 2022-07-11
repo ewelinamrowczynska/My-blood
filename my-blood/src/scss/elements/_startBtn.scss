@@ -6,4 +6,10 @@
 .newAddFormsList {
   display: flex;
   flex-direction: row-reverse;
+  overflow: auto;
+
+  .newAddForms {
+    width: 20em;
+    margin-right: 1em;
+  }
 }

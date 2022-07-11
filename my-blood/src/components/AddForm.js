@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {RiCloseCircleLine} from 'react-icons/ri';
+import {RiDeleteBin2Line} from 'react-icons/ri';
 import {TiEdit} from "react-icons/ti";
 import {MdFileDownloadDone} from "react-icons/md";
 import {GrAddCircle} from "react-icons/gr"
@@ -13,6 +13,7 @@ const AddForm = () => {
     const [editingText, setEditingText] = useState("");
     const [editQuantity, setEditQuantity] = useState("");
     const [editUnit, setEditUnit] = useState();
+    const [date, setDate] = useState([]);
 
     useEffect(() => {
         const loadedResults = JSON.parse(localStorage.getItem("bloodResults"));
@@ -37,6 +38,8 @@ const AddForm = () => {
             quantity: quantity,
             unit: unit
         }
+        const newDate = new Date().toLocaleString();
+        setDate([...date, newDate]);
         setResults([...results, newResult]);
         setEditingText(result);
         setEditQuantity(quantity);
@@ -66,7 +69,7 @@ const AddForm = () => {
     }
 
     return (
-        <div className="container blackContainer">
+        <div className="cardsContainer"> {date[date.length - 1]}
 
             <form className="addForm" onSubmit={handleSubmit}>
                 <input
@@ -98,7 +101,7 @@ const AddForm = () => {
                 <button className="btn" type="submit"><GrAddCircle/></button>
 
             </form>
-            <ul className="card"> {new Date().toLocaleDateString()}
+            <ul className="card">
                 {results.map(el => {
                     return (
                         <li className="editForm" key={el.id}>{resultEditing === el.id ? (
@@ -140,7 +143,7 @@ const AddForm = () => {
                                 }}><TiEdit/></button>)}
                             <button className="listBtn" onClick={() => {
                                 deleteResult(el.id)
-                            }}><RiCloseCircleLine/>
+                            }}><RiDeleteBin2Line/>
                             </button>
                         </li>
                     )
