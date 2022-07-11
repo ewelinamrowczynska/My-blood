@@ -3,10 +3,16 @@ import AddForm from "./AddForm";
 
 const StartBtn = () => {
     const [start, setStart] = useState(false);
+    const [cards, setCards] = useState([]);
 
     const handleStartBtn = (e) => {
         e.preventDefault();
         setStart(true);
+
+        const newCard = {
+            id: new Date().getTime(),
+        }
+        setCards([...cards, newCard]);
     }
 
     if (start) return (
@@ -14,10 +20,14 @@ const StartBtn = () => {
             <button className="btn newCardBtn" type="button" onClick={(handleStartBtn)}
             >Nowa karta wyników
             </button>
-            <ul>
-                <li>
-                    <AddForm/>
-                </li>
+            <ul className="newAddFormsList"> {cards.map(el => {
+                return (
+                    <li className="newAddForms">
+                        <AddForm/>
+                    </li>
+                )
+            })}
+
             </ul>
         </>
     )

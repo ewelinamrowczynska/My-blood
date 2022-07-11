@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import { TiEdit } from "react-icons/ti";
-import { MdFileDownloadDone } from "react-icons/md";
+import React, {useState, useEffect} from 'react';
+import {RiCloseCircleLine} from 'react-icons/ri';
+import {TiEdit} from "react-icons/ti";
+import {MdFileDownloadDone} from "react-icons/md";
+import {GrAddCircle} from "react-icons/gr"
 
 const AddForm = () => {
     const [results, setResults] = useState([]);
@@ -25,7 +26,6 @@ const AddForm = () => {
         localStorage.setItem("bloodResults", JSON.stringify(results));
         console.log(results);
     }, [results]);
-
 
 
     const handleSubmit = (e, id) => {
@@ -69,11 +69,14 @@ const AddForm = () => {
         <div className="container blackContainer">
 
             <form className="addForm" onSubmit={handleSubmit}>
-                <input type="text"
-                       placeholder="parametr"
-                       onChange={(e) => setResult(e.target.value)}
-                       value={result}/>
                 <input
+                    className="parameterInput"
+                    type="text"
+                    placeholder="parametr"
+                    onChange={(e) => setResult(e.target.value)}
+                    value={result}/>
+                <input
+                    className="quantityInput"
                     placeholder="wynik"
                     value={quantity}
                     onChange={e => setQuantity(e.target.value)}
@@ -92,24 +95,25 @@ const AddForm = () => {
                     <option value="mg/l">mg/l</option>
                     <option value="U/l">U/l</option>
                 </select>
-                <button className="btn" type="submit">Dodaj wynik</button>
+                <button className="btn" type="submit"><GrAddCircle/></button>
 
             </form>
-            <ul className="card"> {new Date().toLocaleString()}
-                {results.map((el) => {
+            <ul className="card"> {new Date().toLocaleDateString()}
+                {results.map(el => {
                     return (
                         <li className="editForm" key={el.id}>{resultEditing === el.id ? (
                                 <>
                                     <input
+                                        className="parameterInput"
                                         type="text"
                                         placeholder="parametr"
                                         onChange={(e) => setEditingText(e.target.value)}
                                         value={editingText}
                                     />
-                                    <input
-                                        placeholder="wynik"
-                                        value={editQuantity}
-                                        onChange={e => setEditQuantity(e.target.value)}
+                                    <input className="quantityInput"
+                                           placeholder="wynik"
+                                           value={editQuantity}
+                                           onChange={e => setEditQuantity(e.target.value)}
                                     />
                                     <select
                                         value={editUnit}
@@ -129,13 +133,14 @@ const AddForm = () => {
                             :
                             (<span className="listValues">{el.parameter} {el.quantity} {el.unit}</span>)}
                             {resultEditing === el.id
-                                ? (<button className="listBtn" onClick={() => editResult(el.id)}><MdFileDownloadDone /></button>)
+                                ? (<button className="listBtn" onClick={() => editResult(el.id)}><MdFileDownloadDone/>
+                                </button>)
                                 : (<button className="listBtn" onClick={() => {
                                     setResultEditing(el.id)
-                                }}><TiEdit /></button>)}
+                                }}><TiEdit/></button>)}
                             <button className="listBtn" onClick={() => {
                                 deleteResult(el.id)
-                            }}><RiCloseCircleLine />
+                            }}><RiCloseCircleLine/>
                             </button>
                         </li>
                     )
