@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import FakeAPI from "./FakeAPI";
-import Nav from "./Nav";
 import Home from "./Home";
-import AddForm from "./AddForm";
 import FilterForm from "./FilterForm";
 import Footer from "./Footer";
+import StartBtn from "./StartBtn";
 
 const Form = () => {
     const [login, setLogin] = useState("");
@@ -31,13 +30,9 @@ const Form = () => {
         return (
             <>
                 <div className="header">
-                    <Nav/>
                     <span className="userName">Zalogowany użytkownik {user.name}</span>
                 </div>
-                <Home/>
-                <AddForm/>
-                <FilterForm/>
-                <Footer/>
+
 
             </>)
     }
@@ -64,7 +59,7 @@ const Form = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>
-                    <button className="log__btn">Zaloguj</button>
+                    <button className="btn">Zaloguj</button>
                 </div>
             </form>
         </>

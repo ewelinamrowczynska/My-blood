@@ -23,3 +23,17 @@ body {
     border-radius: 10px;
   }
 }
+
+.btn {
+  max-width: 35em;
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  background-color: #fd5f15;
+}
+input, select {
+  color: antiquewhite;
+  background-color: black;
+  width: 8em;
+  border-radius: 6px;
+  outline: 0;
+}

@@ -16,7 +16,11 @@ h2 {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #a1e0f8;
+  background: linear-gradient(
+                  90deg,
+                  rgba(93, 12, 255, 1) 0%,
+                  rgba(155, 0, 250, 1) 100%
+  );
 
   .form__input {
     display: flex;
@@ -24,12 +28,6 @@ h2 {
     justify-content: center;
     align-items: center;
 
-    input {
-      margin: 0.5em;
-      border: none;
-      border-bottom: 1.5px solid grey;
-      background-color: #a1e0f8;
-    }
   }
 
   .log__btn {
@@ -38,15 +36,6 @@ h2 {
     align-self: center;
     border-radius: 5px;
     border: none;
-    background-color: #a1e0f8;
-    a {
-      color: grey;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: black;
-    }
-
-  }
+    background-color: #fd5f15;
+      }
 }

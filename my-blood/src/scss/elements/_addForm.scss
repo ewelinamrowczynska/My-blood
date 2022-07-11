@@ -1,12 +1,4 @@
-.btn {
-  max-width: 35em;
-  border-radius: 6px;
-  padding: 0.5em 1em;
-  background-color: #fd5f15;
-}
-.newCardBtn {
-  margin: 1em;
-}
+
 
 .addForm {
   display: flex;
@@ -22,13 +14,7 @@ display: flex;
 .blackContainer {
   background: black;
 }
-input, select {
-  color: antiquewhite;
-  background-color: black;
-  width: 8em;
-  border-radius: 6px;
-  outline: 0;
-}
+
 .card {
   max-width: 70%;
   color: antiquewhite;
@@ -37,6 +23,7 @@ input, select {
           rgba(93, 12, 255, 1) 0%,
   rgba(155, 0, 250, 1) 100%
   );
+
   .listValues {
     padding-right: 1em;
     color: inherit;

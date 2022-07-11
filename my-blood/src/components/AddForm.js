@@ -67,7 +67,7 @@ const AddForm = () => {
 
     return (
         <div className="container blackContainer">
-            <button className="btn newCardBtn" type="button">Nowa karta wyników</button>
+
             <form className="addForm" onSubmit={handleSubmit}>
                 <input type="text"
                        placeholder="parametr"
@@ -95,7 +95,7 @@ const AddForm = () => {
                 <button className="btn" type="submit">Dodaj wynik</button>
 
             </form>
-            <ul className="card">
+            <ul className="card"> {new Date().toLocaleString()}
                 {results.map((el) => {
                     return (
                         <li className="editForm" key={el.id}>{resultEditing === el.id ? (
