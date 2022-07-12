@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: Verdana, sans-serif;
+  font-family: 'Nunito', sans-serif;
   display: flex;
   justify-content: center;
   background: linear-gradient(
@@ -30,6 +30,7 @@ body {
   border-radius: 6px;
   padding: 0.5em 1em;
   background-color: #fd5f15;
+  outline: none;
 }
 
 input, select {
@@ -37,5 +38,9 @@ input, select {
   background-color: black;
   width: 8em;
   border-radius: 6px;
-  outline: 0;
+  outline: none;
+}
+
+.logo {
+  font-family: 'Coiny', cursive;
 }
