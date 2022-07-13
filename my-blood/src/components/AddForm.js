@@ -98,13 +98,13 @@ const AddForm = () => {
                     <option value="mg/l">mg/l</option>
                     <option value="U/l">U/l</option>
                 </select>
-                <button className="btn" type="submit"><GrAddCircle/></button>
+                <button className="listBtn" type="submit"><GrAddCircle/></button>
 
             </form>
             <ul className="card">
                 {results.map(el => {
                     return (
-                        <li className="editForm" key={el.id}>{resultEditing === el.id ? (
+                        <li className="addForm" key={el.id}>{resultEditing === el.id ? (
                                 <>
                                     <input
                                         className="parameterInput"

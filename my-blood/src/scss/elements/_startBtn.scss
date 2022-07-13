@@ -6,7 +6,7 @@
 .newAddFormsList {
   display: flex;
   flex-direction: row-reverse;
-  overflow: auto;
+  overflow-x: auto;
 
   &::-webkit-scrollbar {
   width: 0.5em;
@@ -23,7 +23,7 @@
   }
 
 
-  .newAddForms {
+  .newAddForm {
     width: 20em;
     margin-right: 1em;
   }

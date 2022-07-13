@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AddForm from "./AddForm";
 
 const StartBtn = () => {
@@ -20,9 +20,10 @@ const StartBtn = () => {
             <button className="btn newCardBtn" type="button" onClick={(handleStartBtn)}
             >Nowa karta wyników
             </button>
+
             <ul className="newAddFormsList"> {cards.map(el => {
                 return (
-                    <li className="newAddForms">
+                    <li className="newAddForm">
                         <AddForm/>
                     </li>
                 )
@@ -33,7 +34,7 @@ const StartBtn = () => {
     )
     return (
         <button className="btn newCardBtn" type="button" onClick={(handleStartBtn)}
-        >Nowa karta wyników</button>
+        >Zaczynajmy!</button>
 
     );
 
