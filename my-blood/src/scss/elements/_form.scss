@@ -24,7 +24,9 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    input {
+      margin-bottom: 1em;
+    }
   }
 
   .log__btn {

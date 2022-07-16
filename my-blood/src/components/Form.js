@@ -35,7 +35,6 @@ const Form = () => {
                 </div>
                 <Home/>
                 <StartBtn/>
-                <FilterForm/>
                 <Footer/>
             </>)
     }
@@ -44,7 +43,7 @@ const Form = () => {
         <>
             {msg.length > 0 && <h2>{msg}</h2>}
             <form className="form" onSubmit={handleSubmit}>
-                <h4>Zaloguj się do MY_BLOOD</h4>
+                <h4>Zaloguj się do <span className="logo">MY_BLOOD</span></h4>
                 <div className="form__input">
 
                     <input
