@@ -5,7 +5,9 @@ import {MdFileDownloadDone} from "react-icons/md";
 import {GrAddCircle} from "react-icons/gr"
 
 const AddForm = () => {
+
     const [results, setResults] = useState([]);
+    const [allResults, setAllResults] = useState([]);
     const [result, setResult] = useState("");
     const [quantity, setQuantity] = useState("");
     const [unit, setUnit] = useState();
@@ -15,44 +17,62 @@ const AddForm = () => {
     const [editUnit, setEditUnit] = useState();
     const [date, setDate] = useState([]);
 
-    useEffect(() => {
-        const loadedResults = JSON.parse(localStorage.getItem("bloodResults"));
-        if (loadedResults) {
-            setResults(loadedResults)
-        }
-        console.log(results);
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem("bloodResults", JSON.stringify(results));
-        console.log(results);
-    }, [results]);
-
+const postBody = {
+    "parameter": "leukocyty",
+    "quantity": "2.6",
+    "unit": "tys/µl"
+}
 
     const handleSubmit = (e, id) => {
+        fetch(
+            `http://localhost:3000/bloodResults`,
+            {
+                method: "POST",
+                body: JSON.stringify(postBody),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+            .then(response => response.json())
+            .then(() => {
+                setResults([...results, newResult]);
+            })
         e.preventDefault();
-
         const newResult = {
             id: new Date().getTime(),
             parameter: result,
             quantity: quantity,
             unit: unit
         }
+
         const newDate = new Date().toLocaleString();
         setDate([...date, newDate]);
-        setResults([...results, newResult]);
+
+        setAllResults([...allResults, results]);
+        console.log(allResults);
+
         setEditingText(result);
         setEditQuantity(quantity);
         setEditUnit(unit);
         setQuantity("");
         setUnit("");
         setResult("");
+
     }
 
     const deleteResult = id => {
-        const updateResults = [...results].filter((el) => el.id !== id)
+        fetch (`http://localhost:3000/bloodResults/${id}`,
+            {
+                method: "DELETE"
+            }
+    )
+            .then(response => response.json())
+            .then(() => {
+                const updateResults = [...results].filter((el) => el.id !== id);
+                setResults(updateResults);
+            })
 
-        setResults(updateResults)
     }
 
     const editResult = id => {
@@ -69,7 +89,7 @@ const AddForm = () => {
     }
 
     return (
-        <div className="cardsContainer"> {date[date.length - 1]}
+        <div className="cardsContainer" id={date[date.length - 1]}> {date[date.length - 1]}
 
             <form className="addForm" onSubmit={handleSubmit}>
                 <input
@@ -98,9 +118,9 @@ const AddForm = () => {
                     <option value="mg/l">mg/l</option>
                     <option value="U/l">U/l</option>
                 </select>
-                <button className="listBtn" type="submit"><GrAddCircle/></button>
-
+                <button className="listBtn" type="submit"><GrAddCircle /></button>
             </form>
+
             <ul className="card">
                 {results.map(el => {
                     return (
@@ -149,6 +169,7 @@ const AddForm = () => {
                     )
                 })}
             </ul>
+
         </div>
     )
 };

@@ -1,0 +1,16 @@
+{
+  "bloodResults": [
+    {
+      "id": 1,
+      "parameter": "leukocyty",
+      "quantity": "3.4",
+      "unit": "tys/µl"
+    },
+    {
+      "id": 2,
+      "parameter": "erytrocyty",
+      "quantity": "3.7",
+      "unit": "mln/µl"
+    }
+  ]
+}

@@ -1,3 +1,10 @@
 .header {
-  text-align: end;
+  display: flex;
+  justify-content: space-between;
+}
+.logOut {
+  background-color: $color-blue;
+  &:hover {
+    background-color: $color-blue;
+  }
 }

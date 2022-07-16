@@ -9,10 +9,8 @@ import Footer from "./components/Footer";
 function App() {
     return (
         <>
-            <Home />
-            <StartBtn />
-            <FilterForm />
-            <Footer />
+            <Form />
+
         </>
     );
 }

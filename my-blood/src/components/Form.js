@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import FakeAPI from "./FakeAPI";
 import Home from "./Home";
 import FilterForm from "./FilterForm";
@@ -30,10 +30,13 @@ const Form = () => {
         return (
             <>
                 <div className="header">
-                    <span className="userName">Zalogowany użytkownik {user.name}</span>
+                    <span className="userName">Zalogowany uzytkownik {user.name}</span>
+                    <button className="btn logOut" onClick={() => setIsLogged(false)}>Wyloguj</button>
                 </div>
-
-
+                <Home/>
+                <StartBtn/>
+                <FilterForm/>
+                <Footer/>
             </>)
     }
 
@@ -43,25 +46,25 @@ const Form = () => {
             <form className="form" onSubmit={handleSubmit}>
                 <h4>Zaloguj się do MY_BLOOD</h4>
                 <div className="form__input">
-                    <label id="login">Login
-                        <input
-                            type="text"
-                            name="username"
-                            value={login}
-                            onChange={(e) => setLogin(e.target.value)}
-                        />
-                    </label>
-                    <label id="password">Hasło
-                        <input
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </label>
+
+                    <input
+                        placeholder="Login"
+                        type="text"
+                        name="username"
+                        value={login}
+                        onChange={(e) => setLogin(e.target.value)}
+                    />
+                    <input
+                        placeholder="Hasło"
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
                     <button className="btn">Zaloguj</button>
                 </div>
             </form>
+
         </>
     );
 };

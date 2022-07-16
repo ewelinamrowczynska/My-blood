@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import AddForm from "./AddForm";
 
 const StartBtn = () => {
@@ -23,7 +23,7 @@ const StartBtn = () => {
 
             <ul className="newAddFormsList"> {cards.map(el => {
                 return (
-                    <li className="newAddForm">
+                    <li className="newAddForm" key={el.id}>
                         <AddForm/>
                     </li>
                 )
