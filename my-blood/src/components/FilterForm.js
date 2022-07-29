@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {BsSearch} from "react-icons/bs";
+import React, { useState } from 'react';
+import { BsSearch } from "react-icons/bs";
 import AddForm from "./AddForm";
 
 const FilterForm = () => {
@@ -20,6 +20,5 @@ const FilterForm = () => {
             <button className="listBtn" onClick={handeSearchBtn}><BsSearch/></button>
         </div>
     )
-
 }
 export default FilterForm;

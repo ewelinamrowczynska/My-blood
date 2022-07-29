@@ -17,6 +17,8 @@ const AddForm = () => {
     const [editUnit, setEditUnit] = useState();
     const [date, setDate] = useState([]);
 
+
+
 const postBody = {
     "parameter": "leukocyty",
     "quantity": "2.6",
@@ -156,20 +158,30 @@ const postBody = {
                             :
                             (<span className="listValues">{el.parameter} {el.quantity} {el.unit}</span>)}
                             {resultEditing === el.id
-                                ? (<button className="listBtn" onClick={() => editResult(el.id)}><MdFileDownloadDone/>
+                                ? (
+                                <button
+                                    className="listBtn"
+                                    onClick={() => editResult(el.id)}
+                                >
+                                    <MdFileDownloadDone/>
                                 </button>)
-                                : (<button className="listBtn" onClick={() => {
-                                    setResultEditing(el.id)
-                                }}><TiEdit/></button>)}
-                            <button className="listBtn" onClick={() => {
-                                deleteResult(el.id)
-                            }}><RiDeleteBin2Line/>
+                                : (
+                                    <button
+                                        className="listBtn"
+                                        onClick={() => {setResultEditing(el.id)}}>
+                                        <TiEdit/>
+                                    </button>
+                                )}
+                            <button
+                                className="listBtn"
+                                onClick={() => {deleteResult(el.id)}}
+                            >
+                                <RiDeleteBin2Line/>
                             </button>
                         </li>
                     )
                 })}
             </ul>
-
         </div>
     )
 };

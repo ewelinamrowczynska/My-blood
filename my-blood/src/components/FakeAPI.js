@@ -1,4 +1,3 @@
-
 const FakeAPI = {
     login: data => {
         const {username, password} = data;
