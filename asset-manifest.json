@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/My-blood/static/css/main.b925c984.css",
+    "main.js": "/My-blood/static/js/main.77ebf607.js",
+    "index.html": "/My-blood/index.html",
+    "main.b925c984.css.map": "/My-blood/static/css/main.b925c984.css.map",
+    "main.77ebf607.js.map": "/My-blood/static/js/main.77ebf607.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b925c984.css",
+    "static/js/main.77ebf607.js"
+  ]
+}
