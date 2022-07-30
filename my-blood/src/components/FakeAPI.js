@@ -2,11 +2,11 @@ const FakeAPI = {
     login: data => {
         const {username, password} = data;
         return new Promise((resolve, reject) => {
-            if (username === "John Doe" && password === "start") {
+            if (username === "Eve Mrr" && password === "qwer") {
                 resolve({
                     username,
-                    name: "John",
-                    surname: "Doe",
+                    name: "Eve",
+                    surname: "Mrr",
                     lastLogin: new Date("02/04/2022 21:37:00")
                 });
             } else {
